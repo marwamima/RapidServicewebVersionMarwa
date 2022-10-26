@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Client } from '../Core/Client';
 
 @Component({
   selector: 'app-inscription-client',
@@ -11,5 +13,7 @@ export class InscriptionClientComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  onSubmit(){
+    
+  }
 }

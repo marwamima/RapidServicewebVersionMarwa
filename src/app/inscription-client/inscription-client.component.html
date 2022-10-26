@@ -7,24 +7,96 @@
     <div class="container layout_padding2-top">
       <div class="row">
         <div class="col-md-6 mx-auto">
-          <form action="">
+          <form name="form"
+          #form="ngForm"
+          (ngSubmit)="onSubmit()"
+          action="">
             <div>
-                <input type="text" placeholder="Nom">
+                <input type="text"
+                 name="nom"
+                  [(ngModel)]="client.nom" 
+                  #nom="ngModel"  
+                required
+                minlength="3" 
+                placeholder="Nom"
+                >
+                <div
+                *ngIf="nom.touched && nom.invalid"
+                class="alert alert-danger"
+              >
+                <div *ngIf="nom.errors?.required">Nom est obligatoire</div>
+                <div *ngIf="nom.errors?.minlength">
+                  Nom doit avoir au moins 3 characteres
+                </div>
+              </div>
               </div>
               <div>
-                <input type="text" placeholder="Prénom">
+                <input type="text" 
+                 name="prenom"
+                 [(ngModel)]="client.prenom"
+                 #prenom="ngModel"
+                 required
+                placeholder="Prénom">
+                <div *ngIf="prenom.touched && prenom.invalid"
+                class="alert alert-danger">
+                 Prenom est obligatoire!
+                </div>
               </div>
               <div>
-                <input type="text" placeholder="Ville">
-              </div>
+                <input type="text" 
+                name="ville"
+                [(ngModel)]="client.ville"
+                placeholder="Ville"
+                #prenom="ngModel"
+                required>
+              <div
+            *ngIf="ville.touched && ville.invalid"
+            class="alert alert-danger"
+          >
+          Ville est obligatoire !
+          </div>
+          </div>
               <div>
-                <input type="text" placeholder="Telephone">
+                <input type="text" 
+                name="telephone"
+                [(ngModel)]="client.telephone"
+                placeholder="Telephone"
+                #telephone="ngModel"
+                required >
+                <div
+            *ngIf="telephone.touched && telephone.invalid"
+            class="alert alert-danger"
+          >
+            Telephone est obligatoire !
+          </div>
               </div>
             <div>
-              <input type="text" placeholder="EMAIL">
+              <input type="text" 
+              name="email"
+              [(ngModel)]="client.mail"
+              #telephone="ngModel"
+              placeholder="EMAIL"
+              required>
+              <div
+            *ngIf="mail.touched && mail.invalid"
+            class="alert alert-danger"
+          >
+            Mail est obligatoire !
+          </div>
             </div>
             <div>
-              <input type="email" placeholder="Password">
+              <input type="password" 
+              name="password"
+              [(ngModel)]="client.password"
+              placeholder="Password"
+              #password="ngModel"
+              required>
+              <div
+            *ngIf="password.touched && password.invalid"
+            class="alert alert-danger"
+          >
+            Password est obligatoire !
+          </div>
             </div>
            
            
